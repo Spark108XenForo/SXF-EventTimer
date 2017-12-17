@@ -8,12 +8,12 @@ The plugin adds a customizable timer widget that allows you to count the time be
 * You can change the color of the timer, the color and the background image of the timer block.
 
 ### Discussion
-You can discuss the plugin on my [personal site] (https://spark108.ru/threads/45/).
+You can discuss the plugin on my [personal site](https://spark108.ru/threads/45/).
 
 ### Localizations
 There are 2 localizations:
 * Built-in English localization.
-* [Russian localization] (https://github.com/spark108/XF2_SXF_EventTimer/blob/master/language-Russian- (RU) -SXF_ET.xml)
+* [Russian localization](https://github.com/spark108/XF2_SXF_EventTimer/blob/master/language-Russian- (RU) -SXF_ET.xml)
 
 # [SXF] Event Timer для XenForo 2.0 - Rus
 Плагин добавляет настраиваемый виджет таймера, позволяющий отсчитывать время до наступления события.
