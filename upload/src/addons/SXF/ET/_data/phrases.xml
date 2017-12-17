@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="sxf_et_background_color" version_id="1000070" version_string="1.0.0"><![CDATA[Background color]]></phrase>
+  <phrase title="sxf_et_background_image" version_id="1000070" version_string="1.0.0"><![CDATA[Background image]]></phrase>
+  <phrase title="sxf_et_background_image_explain" version_id="1000070" version_string="1.0.0"><![CDATA[URL address of the image.]]></phrase>
+  <phrase title="sxf_et_end_event_message" version_id="1000070" version_string="1.0.0"><![CDATA[Event end message]]></phrase>
+  <phrase title="sxf_et_end_event_message_explain" version_id="1000070" version_string="1.0.0"><![CDATA[Displayed instead of the timer after the end of the event (You can use HTML).]]></phrase>
+  <phrase title="sxf_et_event_description" version_id="1000070" version_string="1.0.0"><![CDATA[Event description]]></phrase>
+  <phrase title="sxf_et_event_description_explain" version_id="1000070" version_string="1.0.0"><![CDATA[The message displayed above the timer (You can use HTML).]]></phrase>
+  <phrase title="sxf_et_event_end" version_id="1000070" version_string="1.0.0"><![CDATA[Event end date]]></phrase>
+  <phrase title="sxf_et_hide_end_event" version_id="1000070" version_string="1.0.0"><![CDATA[Hide the widget after the event ends in T seconds]]></phrase>
+  <phrase title="sxf_et_timer_color" version_id="1000070" version_string="1.0.0"><![CDATA[Timer color]]></phrase>
+  <phrase title="widget_def.et_event_timer" version_id="1000070" version_string="1.0.0"><![CDATA[Event Timer]]></phrase>
+  <phrase title="widget_def_desc.et_event_timer" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+</phrases>

@@ -1,0 +1,1 @@
+The message displayed above the timer (You can use HTML).

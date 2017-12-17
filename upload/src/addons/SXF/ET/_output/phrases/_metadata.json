@@ -1,0 +1,74 @@
+{
+    "sxf_et_background_color.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "368d9ac76af05f714092bc808a426bfc"
+    },
+    "sxf_et_background_image.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "69ee1afc9b3d02e53d9f733c1993b568"
+    },
+    "sxf_et_background_image_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "436714ec10a1fe17ae49a63d96b8457d"
+    },
+    "sxf_et_end_event_message.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "8fc4da4ec946a61f5592763b344c1624"
+    },
+    "sxf_et_end_event_message_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "db68050e1a2f626d0e7f1486df3d81ee"
+    },
+    "sxf_et_event_description.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "814843844c5a5bc0a38d814c53c2cf83"
+    },
+    "sxf_et_event_description_explain.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "99e3163771755e071edd26d6114dd9a3"
+    },
+    "sxf_et_event_end.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "27508a0cebeb8450359d8d68587f7e82"
+    },
+    "sxf_et_hide_end_event.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "5247dcb18c193c80c9f8e364d2207b43"
+    },
+    "sxf_et_timer_color.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "c9a2fc4768526af6f826f02ca8b5abfa"
+    },
+    "widget_def.et_event_timer.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "5816a8cf7c7ea68da7ac39fde14c73b2"
+    },
+    "widget_def_desc.et_event_timer.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+}

@@ -1,0 +1,51 @@
+<xf:css src="widget_sxf_et_eventTimer.less" />
+<div class="block">
+	<div class="block-container">
+		<div class="block-body et" 
+			style="{{ $background_color ? 'background-color:' . $background_color . ';' : ''}}
+				   {{ $background_image ? 'background:url(' . $background_image . ')  0 no-repeat/cover;' : ''}}">
+			<div class="block-row description">
+				{$description|raw}
+			</div>
+			<div class="block-row timer">
+				<div id="timer" end-time="{$end_time}"
+					 style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
+				
+				<script type="text/javascript">
+					(function(){
+						let echo = document.getElementById('timer'),
+							fnDisplayTime = function(d, h, m, s)
+							{
+								echo.innerText = `${d} {{ phrase('units_days') }} \n${h} {{ phrase('units_hours') }} ${m} {{ phrase('units_minutes') }} ${s} {{ phrase('units_seconds') }}`;
+							},
+							fnEndTimer = function(msg)
+							{
+								echo.innerHTML = msg;
+								clearTimeout(timer);
+							},
+							endTime = Math.floor(echo.getAttribute('end-time')),
+							timer = setInterval(()=>{
+								if (endTime < 0)
+								{
+									fnEndTimer('{$end_message|raw}');
+									return;
+								}
+								
+								let s = endTime, m = s/60, h = m/60, d = h/24;
+
+								h = (d - Math.floor(d)) * 24;
+								m = (h - Math.floor(h)) * 60;
+								s = (m - Math.floor(m)) * 60;
+								
+								let t = [d,h,m,s].map(a=>Math.floor(a));
+								
+								fnDisplayTime(t[0],t[1],t[2],t[3]);
+								
+								endTime--;
+							}, 1000);	
+					})();
+				</script>
+			</div>
+		</div>
+	</div>
+</div>

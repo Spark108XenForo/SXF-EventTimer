@@ -1,0 +1,1 @@
+Hide the widget after the event ends in T seconds

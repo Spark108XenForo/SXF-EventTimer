@@ -1,0 +1,1 @@
+Displayed instead of the timer after the end of the event (You can use HTML).

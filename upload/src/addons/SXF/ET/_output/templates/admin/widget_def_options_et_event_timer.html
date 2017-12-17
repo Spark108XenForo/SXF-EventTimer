@@ -1,0 +1,26 @@
+<hr class="formRowSep" />
+
+<xf:textboxrow name="options[description]" label="{{ phrase('sxf_et_event_description') }}" 
+	value="{$options.description}" 
+	explain="{{ phrase('sxf_et_event_description_explain') }}" />
+<xf:textboxrow name="options[end_message]" label="{{ phrase('sxf_et_end_event_message') }}" 
+	value="{$options.end_message}"
+	explain="{{ phrase('sxf_et_end_event_message_explain') }}" />
+<xf:dateinputrow name="options[end]" label="{{ phrase('sxf_et_event_end') }}" value="{$options.end}" />
+<xf:checkboxrow>
+	<xf:option name="options[hide]" label="{{ phrase('sxf_et_hide_end_event:') }}" checked="{$options.hide}">
+		<xf:dependent>
+			<xf:numberbox name="options[hide_time]" value="{$options.hide_time}" min="0" />
+		</xf:dependent>
+	</xf:option>
+</xf:checkboxrow>
+
+<hr class="formRowSep" />
+
+<xf:textboxrow name="options[timer_color]" label="{{ phrase('sxf_et_timer_color') }}" 
+	value="{$options.timer_color}" />
+<xf:textboxrow name="options[background_color]" label="{{ phrase('sxf_et_background_color') }}" 
+	value="{$options.background_color}" />
+<xf:textboxrow name="options[background_image]" label="{{ phrase('sxf_et_background_image') }}" 
+	value="{$options.background_image}"
+	explain="{{ phrase('sxf_et_background_image_explain') }}" />

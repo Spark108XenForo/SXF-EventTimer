@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Russian (RU)" date_format="j M Y" time_format="H:i" currency_format="&quot;{value}&quot; RUB" week_start="1" decimal_point="." thousands_separator="," label_separator=":" comma_separator=", " ellipsis="..." parenthesis_open="(" parenthesis_close=")" language_code="ru-RU" text_direction="LTR" addon_id="SXF/ET" export_version="2">
+  <phrase title="sxf_et_background_color" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Фоновый цвет]]></phrase>
+  <phrase title="sxf_et_background_image" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Фоновое изображение]]></phrase>
+  <phrase title="sxf_et_background_image_explain" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[URL адрес изображения.]]></phrase>
+  <phrase title="sxf_et_end_event_message" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Сообщение окончания события]]></phrase>
+  <phrase title="sxf_et_end_event_message_explain" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Выводится вместо таймера после окончания события (Можно использовать HTML).]]></phrase>
+  <phrase title="sxf_et_event_description" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Описание события]]></phrase>
+  <phrase title="sxf_et_event_description_explain" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Сообщение выводимое над таймером (Можно использовать HTML).]]></phrase>
+  <phrase title="sxf_et_event_end" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Дата окончания события]]></phrase>
+  <phrase title="sxf_et_hide_end_event" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Скрыть виджет по окончанию события через X секунд]]></phrase>
+  <phrase title="sxf_et_timer_color" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Цвет таймера]]></phrase>
+  <phrase title="widget_def.et_event_timer" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Таймер событий]]></phrase>
+  <phrase title="widget_def_desc.et_event_timer" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+</language>
