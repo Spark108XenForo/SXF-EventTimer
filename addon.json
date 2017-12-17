@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "SXF/ET",
+    "title": "[SXF] Event Timer",
+    "description": "Countdown to the event.",
+    "version_id": 1000070,
+    "version_string": "1.0.0",
+    "dev": "Spark108",
+    "dev_url": "https://spark108.ru/",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": [],
+    "require": [],
+    "icon": "fa-clock-o"
+}
