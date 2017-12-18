@@ -5,13 +5,13 @@
         "hash": "636968650df2d4f68cbdfbf7faaa4f0e"
     },
     "public/widget_sxf_et_eventTimer.html": {
-        "version_id": 1000070,
-        "version_string": "1.0.0",
-        "hash": "ac83da7a65f4618b57e74312566c944a"
+        "version_id": 1010070,
+        "version_string": "1.1.0",
+        "hash": "afc59a31bce490c929eb6480506214bf"
     },
     "public/widget_sxf_et_eventTimer.less": {
-        "version_id": 1000070,
-        "version_string": "1.0.0",
-        "hash": "0e7c454c93547c6b9c74d600998f5376"
+        "version_id": 1010070,
+        "version_string": "1.1.0",
+        "hash": "71097c1f030f0315d7eeb8c5a65318f1"
     }
 }

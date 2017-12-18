@@ -25,10 +25,12 @@ class EventTimer extends AbstractWidget
 			return;
 		}
 		
-		$viewParams = $this->getDefaultTemplateParams('options');
+		$options = $this->getDefaultTemplateParams('options');
+		
 		$viewParams = $this->options;
 		$viewParams += [
-			'end_time' => $timeEnd
+			'end_time' => $timeEnd,
+			'key' => $options['widget']['key']
 		];
 		
 		return $this->renderer('widget_sxf_et_eventTimer', $viewParams);

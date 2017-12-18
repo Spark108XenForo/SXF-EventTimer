@@ -61,7 +61,7 @@
 <xf:textboxrow name="options[background_image]" label="{{ phrase('sxf_et_background_image') }}" 
 	value="{$options.background_image}"
 	explain="{{ phrase('sxf_et_background_image_explain') }}" />]]></template>
-  <template type="public" title="widget_sxf_et_eventTimer" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:css src="widget_sxf_et_eventTimer.less" />
+  <template type="public" title="widget_sxf_et_eventTimer" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:css src="widget_sxf_et_eventTimer.less" />
 <div class="block">
 	<div class="block-container">
 		<div class="block-body et" 
@@ -73,12 +73,10 @@
 				</div>
 			</xf:if>
 			<div class="block-row timer">
-				<div id="timer" end-time="{$end_time}"
-					 style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
-				
+				<div id="timer-{$key}" style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
 				<script type="text/javascript">
 					(function(){
-						let echo = document.getElementById('timer'),
+						let echo = document.getElementById('timer-{$key}'),
 							fnDisplayTime = function(d, h, m, s)
 							{
 								switch('{$timer_style}')
@@ -111,7 +109,7 @@
 								}
 								clearTimeout(timer);
 							},
-							endTime = Math.floor(echo.getAttribute('end-time')),
+							endTime = Math.floor('{$end_time}'),
 							timer = setInterval(()=>{
 								if (endTime < 0)
 								{
@@ -137,7 +135,7 @@
 		</div>
 	</div>
 </div>]]></template>
-  <template type="public" title="widget_sxf_et_eventTimer.less" version_id="1000070" version_string="1.0.0"><![CDATA[.et {
+  <template type="public" title="widget_sxf_et_eventTimer.less" version_id="1010070" version_string="1.1.0"><![CDATA[.et {
 	.description {
 		text-align: center;
 		font-size: 16px;
@@ -160,7 +158,7 @@
 
 				& > dt {
 					display: table-row;
-					font-size: 300%;
+					font-size: 290%;
 					padding: 0;
 					margin: 0;
 				}

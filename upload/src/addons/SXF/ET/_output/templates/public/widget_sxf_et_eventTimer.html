@@ -10,12 +10,10 @@
 				</div>
 			</xf:if>
 			<div class="block-row timer">
-				<div id="timer" end-time="{$end_time}"
-					 style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
-				
+				<div id="timer-{$key}" style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
 				<script type="text/javascript">
 					(function(){
-						let echo = document.getElementById('timer'),
+						let echo = document.getElementById('timer-{$key}'),
 							fnDisplayTime = function(d, h, m, s)
 							{
 								switch('{$timer_style}')
@@ -48,7 +46,7 @@
 								}
 								clearTimeout(timer);
 							},
-							endTime = Math.floor(echo.getAttribute('end-time')),
+							endTime = Math.floor('{$end_time}'),
 							timer = setInterval(()=>{
 								if (endTime < 0)
 								{
