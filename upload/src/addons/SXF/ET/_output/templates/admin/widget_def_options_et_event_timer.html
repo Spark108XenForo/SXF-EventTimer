@@ -1,13 +1,16 @@
-<hr class="formRowSep" />
+<xf:inforow><b>{{ phrase('sxf_et_main_options') }}</b></xf:inforow>
 
 <xf:textboxrow name="options[description]" label="{{ phrase('sxf_et_event_description') }}" 
 	value="{$options.description}" 
 	explain="{{ phrase('sxf_et_event_description_explain') }}" />
+
 <xf:textboxrow name="options[end_message]" label="{{ phrase('sxf_et_end_event_message') }}" 
 	value="{$options.end_message}"
 	explain="{{ phrase('sxf_et_end_event_message_explain') }}" />
 <xf:dateinputrow name="options[end]" label="{{ phrase('sxf_et_event_end') }}" value="{$options.end}" />
+
 <xf:checkboxrow>
+	<xf:option name="options[hide_desc]" label="{{ phrase('sxf_et_hide_desc_end_event') }}" checked="{$options.hide_desc}" />
 	<xf:option name="options[hide]" label="{{ phrase('sxf_et_hide_end_event:') }}" checked="{$options.hide}">
 		<xf:dependent>
 			<xf:numberbox name="options[hide_time]" value="{$options.hide_time}" min="0" />
@@ -15,8 +18,40 @@
 	</xf:option>
 </xf:checkboxrow>
 
-<hr class="formRowSep" />
+<xf:inforow><b>{{ phrase('sxf_et_view_options') }}</b></xf:inforow>
 
+<xf:tokeninputrow name="options[users]" value="{$options.users}" href="{{ link('users/find') }}"
+	label="{{ phrase('sxf_et_view_next_users') }}" />
+
+<xf:tokeninputrow name="options[not_users]" value="{$options.not_users}" href="{{ link('users/find') }}"
+	label="{{ phrase('sxf_et_not_view_next_users') }}" />
+
+<xf:selectrow name="options[user_groups]" size="7" multiple="multiple" value="{$options.user_groups}"
+	label="{{ phrase('sxf_et_view_next_user_group') }}" >
+	<xf:option value="" selected="!{$options.user_groups}">{{ phrase('(none)') }}</xf:option>
+	<xf:foreach loop="$user_groups" value="$group">
+		<xf:option value="{$group.user_group_id}">{$group.title}</xf:option>
+	</xf:foreach>
+</xf:selectrow>
+
+<xf:selectrow name="options[not_user_groups]" size="7" multiple="multiple" value="{$options.not_user_groups}"
+	label="{{ phrase('sxf_et_not_view_next_user_group') }}" >
+	<xf:option value="" selected="!{$options.not_user_groups}">{{ phrase('(none)') }}</xf:option>
+	<xf:foreach loop="$user_groups" value="$group">
+		<xf:option value="{$group.user_group_id}">{$group.title}</xf:option>
+	</xf:foreach>
+</xf:selectrow>
+
+<xf:inforow><b>{{ phrase('sxf_et_style_options') }}</b></xf:inforow>
+
+<xf:selectrow name="options[timer_style]" value="{$options.timer_style}"
+	label="{{ phrase('sxf_et_timer_styles') }}" >
+	<xf:option value="0">{{ phrase('sxf_et_timer_style_one') }}</xf:option>
+	<xf:option value="1">{{ phrase('sxf_et_timer_style_two') }}</xf:option>
+</xf:selectrow>
+
+<xf:textboxrow name="options[timer_num_color]" label="{{ phrase('sxf_et_timer_num_color') }}" 
+	value="{$options.timer_num_color}" />
 <xf:textboxrow name="options[timer_color]" label="{{ phrase('sxf_et_timer_color') }}" 
 	value="{$options.timer_color}" />
 <xf:textboxrow name="options[background_color]" label="{{ phrase('sxf_et_background_color') }}" 

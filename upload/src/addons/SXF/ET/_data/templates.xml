@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates>
-  <template type="admin" title="widget_def_options_et_event_timer" version_id="1000070" version_string="1.0.0"><![CDATA[<hr class="formRowSep" />
+  <template type="admin" title="widget_def_options_et_event_timer" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:inforow><b>{{ phrase('sxf_et_main_options') }}</b></xf:inforow>
 
 <xf:textboxrow name="options[description]" label="{{ phrase('sxf_et_event_description') }}" 
 	value="{$options.description}" 
 	explain="{{ phrase('sxf_et_event_description_explain') }}" />
+
 <xf:textboxrow name="options[end_message]" label="{{ phrase('sxf_et_end_event_message') }}" 
 	value="{$options.end_message}"
 	explain="{{ phrase('sxf_et_end_event_message_explain') }}" />
 <xf:dateinputrow name="options[end]" label="{{ phrase('sxf_et_event_end') }}" value="{$options.end}" />
+
 <xf:checkboxrow>
+	<xf:option name="options[hide_desc]" label="{{ phrase('sxf_et_hide_desc_end_event') }}" checked="{$options.hide_desc}" />
 	<xf:option name="options[hide]" label="{{ phrase('sxf_et_hide_end_event:') }}" checked="{$options.hide}">
 		<xf:dependent>
 			<xf:numberbox name="options[hide_time]" value="{$options.hide_time}" min="0" />
@@ -17,8 +20,40 @@
 	</xf:option>
 </xf:checkboxrow>
 
-<hr class="formRowSep" />
+<xf:inforow><b>{{ phrase('sxf_et_view_options') }}</b></xf:inforow>
 
+<xf:tokeninputrow name="options[users]" value="{$options.users}" href="{{ link('users/find') }}"
+	label="{{ phrase('sxf_et_view_next_users') }}" />
+
+<xf:tokeninputrow name="options[not_users]" value="{$options.not_users}" href="{{ link('users/find') }}"
+	label="{{ phrase('sxf_et_not_view_next_users') }}" />
+
+<xf:selectrow name="options[user_groups]" size="7" multiple="multiple" value="{$options.user_groups}"
+	label="{{ phrase('sxf_et_view_next_user_group') }}" >
+	<xf:option value="" selected="!{$options.user_groups}">{{ phrase('(none)') }}</xf:option>
+	<xf:foreach loop="$user_groups" value="$group">
+		<xf:option value="{$group.user_group_id}">{$group.title}</xf:option>
+	</xf:foreach>
+</xf:selectrow>
+
+<xf:selectrow name="options[not_user_groups]" size="7" multiple="multiple" value="{$options.not_user_groups}"
+	label="{{ phrase('sxf_et_not_view_next_user_group') }}" >
+	<xf:option value="" selected="!{$options.not_user_groups}">{{ phrase('(none)') }}</xf:option>
+	<xf:foreach loop="$user_groups" value="$group">
+		<xf:option value="{$group.user_group_id}">{$group.title}</xf:option>
+	</xf:foreach>
+</xf:selectrow>
+
+<xf:inforow><b>{{ phrase('sxf_et_style_options') }}</b></xf:inforow>
+
+<xf:selectrow name="options[timer_style]" value="{$options.timer_style}"
+	label="{{ phrase('sxf_et_timer_styles') }}" >
+	<xf:option value="0">{{ phrase('sxf_et_timer_style_one') }}</xf:option>
+	<xf:option value="1">{{ phrase('sxf_et_timer_style_two') }}</xf:option>
+</xf:selectrow>
+
+<xf:textboxrow name="options[timer_num_color]" label="{{ phrase('sxf_et_timer_num_color') }}" 
+	value="{$options.timer_num_color}" />
 <xf:textboxrow name="options[timer_color]" label="{{ phrase('sxf_et_timer_color') }}" 
 	value="{$options.timer_color}" />
 <xf:textboxrow name="options[background_color]" label="{{ phrase('sxf_et_background_color') }}" 
@@ -32,9 +67,11 @@
 		<div class="block-body et" 
 			style="{{ $background_color ? 'background-color:' . $background_color . ';' : ''}}
 				   {{ $background_image ? 'background:url(' . $background_image . ')  0 no-repeat/cover;' : ''}}">
-			<div class="block-row description">
-				{$description|raw}
-			</div>
+			<xf:if is="{{ !$hide_desc || $end_time > 0}}">
+				<div class="block-row description" id="description">
+					{$description|raw}
+				</div>
+			</xf:if>
 			<div class="block-row timer">
 				<div id="timer" end-time="{$end_time}"
 					 style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
@@ -44,11 +81,34 @@
 						let echo = document.getElementById('timer'),
 							fnDisplayTime = function(d, h, m, s)
 							{
-								echo.innerText = `${d} {{ phrase('units_days') }} \n${h} {{ phrase('units_hours') }} ${m} {{ phrase('units_minutes') }} ${s} {{ phrase('units_seconds') }}`;
+								switch('{$timer_style}')
+								{
+									case '1':
+										let t = [d,h,m,s].map(a=>a<10?`0${a}`:a);
+										
+										echo.innerHTML = '<div class="pair">' +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[0]}</dt><dd>{{ phrase('units_days') }}</dd></dl>` +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[1]}</dt><dd>{{ phrase('units_hours') }}</dd></dl>` +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[2]}</dt><dd>{{ phrase('units_minutes') }}</dd></dl>` +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[3]}</dt><dd>{{ phrase('units_seconds') }}</dd></dl>` +
+											 '</div>';
+										break;
+									default: 
+										echo.innerHTML = `<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${d}</span> {{ phrase('units_days') }} <br>` + 
+											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${h}</span> {{ phrase('units_hours') }} ` + 
+											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${m}</span> {{ phrase('units_minutes') }} ` + 
+											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${s}</span> {{ phrase('units_seconds') }}`;
+								}
+								
 							},
 							fnEndTimer = function(msg)
 							{
 								echo.innerHTML = msg;
+								if (Math.floor('{$hide_desc}') > 0)
+								{
+									let desc = document.getElementById('description');
+									desc.hidden = true;
+								}
 								clearTimeout(timer);
 							},
 							endTime = Math.floor(echo.getAttribute('end-time')),
@@ -86,6 +146,32 @@
     	color: #5050f1;
    		font-weight: 600;
 		text-align: center;
+		
+		.pair {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin-right: -5px;
+			margin-bottom: -5px;
+
+			dl {
+				margin: 0px 5px 5px 5px;
+				display: inline-table;
+
+				& > dt {
+					display: table-row;
+					font-size: 300%;
+					padding: 0;
+					margin: 0;
+				}
+				& > dd {
+					text-align: center;
+					display: table-row;
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
 	}
 }]]></template>
 </templates>

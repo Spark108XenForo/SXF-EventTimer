@@ -4,9 +4,11 @@
 		<div class="block-body et" 
 			style="{{ $background_color ? 'background-color:' . $background_color . ';' : ''}}
 				   {{ $background_image ? 'background:url(' . $background_image . ')  0 no-repeat/cover;' : ''}}">
-			<div class="block-row description">
-				{$description|raw}
-			</div>
+			<xf:if is="{{ !$hide_desc || $end_time > 0}}">
+				<div class="block-row description" id="description">
+					{$description|raw}
+				</div>
+			</xf:if>
 			<div class="block-row timer">
 				<div id="timer" end-time="{$end_time}"
 					 style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
@@ -16,11 +18,34 @@
 						let echo = document.getElementById('timer'),
 							fnDisplayTime = function(d, h, m, s)
 							{
-								echo.innerText = `${d} {{ phrase('units_days') }} \n${h} {{ phrase('units_hours') }} ${m} {{ phrase('units_minutes') }} ${s} {{ phrase('units_seconds') }}`;
+								switch('{$timer_style}')
+								{
+									case '1':
+										let t = [d,h,m,s].map(a=>a<10?`0${a}`:a);
+										
+										echo.innerHTML = '<div class="pair">' +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[0]}</dt><dd>{{ phrase('units_days') }}</dd></dl>` +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[1]}</dt><dd>{{ phrase('units_hours') }}</dd></dl>` +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[2]}</dt><dd>{{ phrase('units_minutes') }}</dd></dl>` +
+											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[3]}</dt><dd>{{ phrase('units_seconds') }}</dd></dl>` +
+											 '</div>';
+										break;
+									default: 
+										echo.innerHTML = `<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${d}</span> {{ phrase('units_days') }} <br>` + 
+											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${h}</span> {{ phrase('units_hours') }} ` + 
+											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${m}</span> {{ phrase('units_minutes') }} ` + 
+											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${s}</span> {{ phrase('units_seconds') }}`;
+								}
+								
 							},
 							fnEndTimer = function(msg)
 							{
 								echo.innerHTML = msg;
+								if (Math.floor('{$hide_desc}') > 0)
+								{
+									let desc = document.getElementById('description');
+									desc.hidden = true;
+								}
 								clearTimeout(timer);
 							},
 							endTime = Math.floor(echo.getAttribute('end-time')),

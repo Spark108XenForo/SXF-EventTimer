@@ -7,5 +7,31 @@
     	color: #5050f1;
    		font-weight: 600;
 		text-align: center;
+		
+		.pair {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin-right: -5px;
+			margin-bottom: -5px;
+
+			dl {
+				margin: 0px 5px 5px 5px;
+				display: inline-table;
+
+				& > dt {
+					display: table-row;
+					font-size: 300%;
+					padding: 0;
+					margin: 0;
+				}
+				& > dd {
+					text-align: center;
+					display: table-row;
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
 	}
 }

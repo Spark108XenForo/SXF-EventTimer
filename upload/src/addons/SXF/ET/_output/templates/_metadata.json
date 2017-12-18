@@ -2,16 +2,16 @@
     "admin/widget_def_options_et_event_timer.html": {
         "version_id": 1000070,
         "version_string": "1.0.0",
-        "hash": "0c7c72d83c44d240d221e0b64865a7b1"
+        "hash": "636968650df2d4f68cbdfbf7faaa4f0e"
     },
     "public/widget_sxf_et_eventTimer.html": {
         "version_id": 1000070,
         "version_string": "1.0.0",
-        "hash": "5ed33bd0ce29e2149d9fee7b4914b598"
+        "hash": "ac83da7a65f4618b57e74312566c944a"
     },
     "public/widget_sxf_et_eventTimer.less": {
         "version_id": 1000070,
         "version_string": "1.0.0",
-        "hash": "fdb22df72dc6a8417ca4bde0c3121c59"
+        "hash": "0e7c454c93547c6b9c74d600998f5376"
     }
 }

@@ -47,17 +47,89 @@
         "version_string": "1.0.0",
         "hash": "27508a0cebeb8450359d8d68587f7e82"
     },
+    "sxf_et_hide_desc_end_event.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "1e0ace089f63dd06593fe4acfaa77e41"
+    },
     "sxf_et_hide_end_event.txt": {
         "global_cache": false,
         "version_id": 1000070,
         "version_string": "1.0.0",
         "hash": "5247dcb18c193c80c9f8e364d2207b43"
     },
+    "sxf_et_main_options.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "b0d22edd328a05e8c57415f07ef0a279"
+    },
+    "sxf_et_not_view_next_user_group.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "bc9e2374af7faf4bf7cf78f07f99c55e"
+    },
+    "sxf_et_not_view_next_users.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "338fac79b9806df975e130c7f681c7ac"
+    },
+    "sxf_et_style_options.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "b8535c5b42c50cc0499b17c176e7a2a9"
+    },
     "sxf_et_timer_color.txt": {
         "global_cache": false,
         "version_id": 1000070,
         "version_string": "1.0.0",
         "hash": "c9a2fc4768526af6f826f02ca8b5abfa"
+    },
+    "sxf_et_timer_num_color.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "f58bfbf2812e4ae32a661bdcafd0b93d"
+    },
+    "sxf_et_timer_style_one.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "308f33017d7b2c11146787b772ebef3c"
+    },
+    "sxf_et_timer_style_two.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "d5fe835951d567c7f5c5034a955fc5d2"
+    },
+    "sxf_et_timer_styles.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "4f2c03b14353939c176e9b4e2e3a284d"
+    },
+    "sxf_et_view_next_user_group.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "b13ee6b6fa63598e22e87977fd043094"
+    },
+    "sxf_et_view_next_users.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "6459d1336c7395d5d92105696c88b4d4"
+    },
+    "sxf_et_view_options.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "fac8e7847e2fce9df0cbc0e5483c1124"
     },
     "widget_def.et_event_timer.txt": {
         "global_cache": false,
