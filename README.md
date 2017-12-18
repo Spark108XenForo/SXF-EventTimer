@@ -6,6 +6,7 @@ The plugin adds a customizable timer widget that allows you to count the time be
 * You can specify a description of the event.
 * You can specify the text that will be displayed when the timer finishes.
 * You can change the color of the timer, the color and the background image of the timer block.
+* You can specify who to show the timer, and who does not (by user name or by user group).
 
 ### Discussion
 You can discuss the plugin on my [personal site](https://spark108.ru/threads/45/).
@@ -23,6 +24,7 @@ There are 2 localizations:
 * Можно указать описание события.
 * Можно указать текст, который будет выводится по завершению таймера.
 * Можно изменить цвет таймера, цвет и картинку фона блока таймера.
+* Можно указать кому показывать таймер, а кому нет (по имени пользователя или по группе пользователей).
 
 ### Обсуждение
 Обсудить плагин можно на моем [личном сайте](https://spark108.ru/threads/45/).
