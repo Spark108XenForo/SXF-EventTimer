@@ -8,16 +8,19 @@
   <phrase title="sxf_et_event_description" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Описание события]]></phrase>
   <phrase title="sxf_et_event_description_explain" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Сообщение выводимое над таймером (Можно использовать HTML).]]></phrase>
   <phrase title="sxf_et_event_end" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Дата окончания события]]></phrase>
+  <phrase title="sxf_et_event_start" addon_id="SXF/ET" version_id="1010170" version_string="1.1.1"><![CDATA[Дата начала события]]></phrase>
   <phrase title="sxf_et_hide_desc_end_event" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Скрыть описание по окончанию события]]></phrase>
   <phrase title="sxf_et_hide_end_event" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Скрыть виджет по окончанию события через X секунд]]></phrase>
+  <phrase title="sxf_et_hour" addon_id="SXF/ET" version_id="1010170" version_string="1.1.1"><![CDATA[Час]]></phrase>
   <phrase title="sxf_et_main_options" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Основные настройки]]></phrase>
+  <phrase title="sxf_et_minute" addon_id="SXF/ET" version_id="1010170" version_string="1.1.1"><![CDATA[Минута]]></phrase>
   <phrase title="sxf_et_not_view_next_user_group" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Не будет выводится следующим группам пользователей]]></phrase>
   <phrase title="sxf_et_not_view_next_users" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Не будет выводится следующим пользователям]]></phrase>
   <phrase title="sxf_et_style_options" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Настройки стиля]]></phrase>
   <phrase title="sxf_et_timer_color" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Цвет таймера]]></phrase>
   <phrase title="sxf_et_timer_num_color" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Цвет цифр таймера]]></phrase>
-  <phrase title="sxf_et_timer_style_one" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Стиль 1]]></phrase>
-  <phrase title="sxf_et_timer_style_two" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Стиль 2]]></phrase>
+  <phrase title="sxf_et_timer_style_one" addon_id="SXF/ET" version_id="1010170" version_string="1.1.1"><![CDATA[Стиль 1 (Строка)]]></phrase>
+  <phrase title="sxf_et_timer_style_two" addon_id="SXF/ET" version_id="1010170" version_string="1.1.1"><![CDATA[Стиль 2 (Столбик)]]></phrase>
   <phrase title="sxf_et_timer_styles" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Стиль таймера]]></phrase>
   <phrase title="sxf_et_view_next_user_group" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Будет выводится следующим группам пользователей]]></phrase>
   <phrase title="sxf_et_view_next_users" addon_id="SXF/ET" version_id="1000070" version_string="1.0.0"><![CDATA[Будет выводится следующим пользователям]]></phrase>
