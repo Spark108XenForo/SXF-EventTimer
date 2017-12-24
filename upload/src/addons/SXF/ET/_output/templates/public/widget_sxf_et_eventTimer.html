@@ -1,73 +1,28 @@
 <xf:css src="widget_sxf_et_eventTimer.less" />
+
 <div class="block">
 	<div class="block-container">
 		<div class="block-body et" 
 			style="{{ $background_color ? 'background-color:' . $background_color . ';' : ''}}
 				   {{ $background_image ? 'background:url(' . $background_image . ')  0 no-repeat/cover;' : ''}}">
-			<xf:if is="{{ !$hide_desc || $end_time > 0}}">
-				<div class="block-row description" id="description">
+			<div class="block-row description" id="description-{$key}">
 					{$description|raw}
-				</div>
-			</xf:if>
+			</div>
 			<div class="block-row timer">
 				<div id="timer-{$key}" style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
-				<script type="text/javascript">
-					(function(){
-						let echo = document.getElementById('timer-{$key}'),
-							fnDisplayTime = function(d, h, m, s)
-							{
-								switch('{$timer_style}')
-								{
-									case '1':
-										let t = [d,h,m,s].map(a=>a<10?`0${a}`:a);
-										
-										echo.innerHTML = '<div class="pair">' +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[0]}</dt><dd>{{ phrase('units_days') }}</dd></dl>` +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[1]}</dt><dd>{{ phrase('units_hours') }}</dd></dl>` +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[2]}</dt><dd>{{ phrase('units_minutes') }}</dd></dl>` +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[3]}</dt><dd>{{ phrase('units_seconds') }}</dd></dl>` +
-											 '</div>';
-										break;
-									default: 
-										echo.innerHTML = `<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${d}</span> {{ phrase('units_days') }} <br>` + 
-											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${h}</span> {{ phrase('units_hours') }} ` + 
-											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${m}</span> {{ phrase('units_minutes') }} ` + 
-											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${s}</span> {{ phrase('units_seconds') }}`;
-								}
-								
-							},
-							fnEndTimer = function(msg)
-							{
-								echo.innerHTML = msg;
-								if (Math.floor('{$hide_desc}') > 0)
-								{
-									let desc = document.getElementById('description');
-									desc.hidden = true;
-								}
-								clearTimeout(timer);
-							},
-							endTime = Math.floor('{$end_time}'),
-							timer = setInterval(()=>{
-								if (endTime < 0)
-								{
-									fnEndTimer('{$end_message|raw}');
-									return;
-								}
-								
-								let s = endTime, m = s/60, h = m/60, d = h/24;
-
-								h = (d - Math.floor(d)) * 24;
-								m = (h - Math.floor(h)) * 60;
-								s = (m - Math.floor(m)) * 60;
-								
-								let t = [d,h,m,s].map(a=>Math.floor(a));
-								
-								fnDisplayTime(t[0],t[1],t[2],t[3]);
-								
-								endTime--;
-							}, 1000);	
-					})();
-				</script>
+				<xf:js src="sxf/et/EventTimer.js">
+					$('#timer-{$key}').EventTimer({
+						endTime: '{$end}',
+						endMessage: '{$end_message|raw}',
+						styleType: {{ $timer_style ? $timer_style : 0}},
+						endJob: function(a)
+						{
+							<xf:if is="{$hide_desc}">
+								$('#description-{$key}').fadeOut();
+							</xf:if>
+						}
+					});
+				</xf:js>
 			</div>
 		</div>
 	</div>

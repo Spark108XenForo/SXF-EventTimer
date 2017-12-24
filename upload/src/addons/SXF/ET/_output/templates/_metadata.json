@@ -1,13 +1,18 @@
 {
+    "admin/sxf_et_helper_date_edit.html": {
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "3ad5197ddfd9b1a75b1a8987ae7eaafa"
+    },
     "admin/widget_def_options_et_event_timer.html": {
-        "version_id": 1000070,
-        "version_string": "1.0.0",
-        "hash": "636968650df2d4f68cbdfbf7faaa4f0e"
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "95fffb2fb6c741a5d2f0a85f194d6a0a"
     },
     "public/widget_sxf_et_eventTimer.html": {
-        "version_id": 1010070,
-        "version_string": "1.1.0",
-        "hash": "afc59a31bce490c929eb6480506214bf"
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "887afd3147d8c50be1673f86c573fbb0"
     },
     "public/widget_sxf_et_eventTimer.less": {
         "version_id": 1010070,

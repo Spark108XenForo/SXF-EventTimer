@@ -7,7 +7,15 @@
 <xf:textboxrow name="options[end_message]" label="{{ phrase('sxf_et_end_event_message') }}" 
 	value="{$options.end_message}"
 	explain="{{ phrase('sxf_et_end_event_message_explain') }}" />
-<xf:dateinputrow name="options[end]" label="{{ phrase('sxf_et_event_end') }}" value="{$options.end}" />
+
+<xf:macro template="sxf_et_helper_date_edit" name="date_edit"
+		  arg-label="{{ phrase('sxf_et_event_start') }}"
+		  arg-name="start" 
+		  arg-date="{$options.start}" />
+<xf:macro template="sxf_et_helper_date_edit" name="date_edit" 
+		  arg-label="{{ phrase('sxf_et_event_end') }}"
+		  arg-name="end" 
+		  arg-date="{$options.end}" />
 
 <xf:checkboxrow>
 	<xf:option name="options[hide_desc]" label="{{ phrase('sxf_et_hide_desc_end_event') }}" checked="{$options.hide_desc}" />

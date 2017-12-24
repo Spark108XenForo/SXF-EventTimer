@@ -1,0 +1,9 @@
+{
+    "template": "helper_js_global",
+    "description": "",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--XF:JS-->",
+    "replace": "\t$0\n\t<script>\n\tjQuery.extend(XF.phrases, {\n\t\tunits_hours: \"{{ phrase('units_hours')|escape('js') }}\",\n\t\tunits_minutes: \"{{ phrase('units_minutes')|escape('js') }}\",\n\t\tunits_seconds: \"{{ phrase('units_seconds')|escape('js') }}\",\n\t\tunits_days: \"{{ phrase('units_days')|escape('js') }}\"\n\t});\n\t</script>"
+}

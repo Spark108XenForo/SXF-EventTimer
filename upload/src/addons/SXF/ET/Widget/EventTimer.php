@@ -18,20 +18,33 @@ class EventTimer extends AbstractWidget
 			return;
 		}
 	
-		$timeEnd = strtotime($opt['end']) - time();
+		$viewParams = $this->options;
 		
-		if ($opt['hide'] && $timeEnd < 0 && ($timeEnd + $opt['hide_time']) < 0)
+		$options = $this->getDefaultTemplateParams('options');
+		
+		$startDate = $viewParams['start'];
+		$startDate = "{$startDate['year']}-{$startDate['month']}-{$startDate['day']} {$startDate['hour']}:{$startDate['minute']}";
+
+		$secondForStart = strtotime($startDate);
+		
+		if ($secondForStart > time())
 		{
 			return;
 		}
 		
-		$options = $this->getDefaultTemplateParams('options');
+		$endDate = $viewParams['end'];
+		$endDate = "{$endDate['year']}-{$endDate['month']}-{$endDate['day']} {$endDate['hour']}:{$endDate['minute']}";
 		
-		$viewParams = $this->options;
-		$viewParams += [
-			'end_time' => $timeEnd,
-			'key' => $options['widget']['key']
-		];
+		$secondForEnd = strtotime($endDate) - time();
+		
+		if ($opt['hide'] && $secondForEnd < 0 && ($secondForEnd + $opt['hide_time']) < 0)
+		{
+			return;
+		}
+		
+		$viewParams['end'] = $endDate;
+		$viewParams['start'] = $startDate;
+		$viewParams['key'] = $options['widget']['key'];
 		
 		return $this->renderer('widget_sxf_et_eventTimer', $viewParams);
 	}

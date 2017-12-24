@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates>
-  <template type="admin" title="widget_def_options_et_event_timer" version_id="1000070" version_string="1.0.0"><![CDATA[<xf:inforow><b>{{ phrase('sxf_et_main_options') }}</b></xf:inforow>
+  <template type="admin" title="sxf_et_helper_date_edit" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:macro name="date_edit" arg-hint="" arg-label="" arg-name="!" arg-date="{{ [] }}">
+	<xf:formrow rowtype="input" label="{$label}" hint="{$hint}">
+		<div class="inputGroup inputGroup--auto">
+			<xf:textbox name="options[{$name}][day]" value="{{ $date.day ?: '01' }}" pattern="\d*" size="4" maxlength="2"
+				placeholder="{{ phrase('day') }}" />
+			<span class="inputGroup-splitter"> . </span>
+			<xf:select name="options[{$name}][month]" value="{{ $date.month ?: 1 }}">
+				<xf:option value="1">{{ phrase('month_1') }}</xf:option>
+				<xf:option value="2">{{ phrase('month_2') }}</xf:option>
+				<xf:option value="3">{{ phrase('month_3') }}</xf:option>
+				<xf:option value="4">{{ phrase('month_4') }}</xf:option>
+				<xf:option value="5">{{ phrase('month_5') }}</xf:option>
+				<xf:option value="6">{{ phrase('month_6') }}</xf:option>
+				<xf:option value="7">{{ phrase('month_7') }}</xf:option>
+				<xf:option value="8">{{ phrase('month_8') }}</xf:option>
+				<xf:option value="9">{{ phrase('month_9') }}</xf:option>
+				<xf:option value="10">{{ phrase('month_10') }}</xf:option>
+				<xf:option value="11">{{ phrase('month_11') }}</xf:option>
+				<xf:option value="12">{{ phrase('month_12') }}</xf:option>
+			</xf:select>
+			<span class="inputGroup-splitter"> . </span>
+			<xf:textbox name="options[{$name}][year]" value="{{ $date.year ?: '2017' }}" pattern="\d*" size="6" maxlength="4"
+				placeholder="{{ phrase('year') }}" />
+			<span class="inputGroup-splitter"> - </span>
+			<xf:textbox name="options[{$name}][hour]" value="{{ $date.hour ?: '00' }}" pattern="\d*" size="6" maxlength="2"
+				placeholder="{{ phrase('sxf_et_hour') }}" />
+			<span class="inputGroup-splitter"> : </span>
+			<xf:textbox name="options[{$name}][minute]" value="{{ $date.minute ?: '00' }}" pattern="\d*" size="6" maxlength="2"
+				placeholder="{{ phrase('sxf_et_minute') }}" />
+		</div>
+	</xf:formrow>
+</xf:macro>]]></template>
+  <template type="admin" title="widget_def_options_et_event_timer" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:inforow><b>{{ phrase('sxf_et_main_options') }}</b></xf:inforow>
 
 <xf:textboxrow name="options[description]" label="{{ phrase('sxf_et_event_description') }}" 
 	value="{$options.description}" 
@@ -9,7 +41,15 @@
 <xf:textboxrow name="options[end_message]" label="{{ phrase('sxf_et_end_event_message') }}" 
 	value="{$options.end_message}"
 	explain="{{ phrase('sxf_et_end_event_message_explain') }}" />
-<xf:dateinputrow name="options[end]" label="{{ phrase('sxf_et_event_end') }}" value="{$options.end}" />
+
+<xf:macro template="sxf_et_helper_date_edit" name="date_edit"
+		  arg-label="{{ phrase('sxf_et_event_start') }}"
+		  arg-name="start" 
+		  arg-date="{$options.start}" />
+<xf:macro template="sxf_et_helper_date_edit" name="date_edit" 
+		  arg-label="{{ phrase('sxf_et_event_end') }}"
+		  arg-name="end" 
+		  arg-date="{$options.end}" />
 
 <xf:checkboxrow>
 	<xf:option name="options[hide_desc]" label="{{ phrase('sxf_et_hide_desc_end_event') }}" checked="{$options.hide_desc}" />
@@ -61,76 +101,31 @@
 <xf:textboxrow name="options[background_image]" label="{{ phrase('sxf_et_background_image') }}" 
 	value="{$options.background_image}"
 	explain="{{ phrase('sxf_et_background_image_explain') }}" />]]></template>
-  <template type="public" title="widget_sxf_et_eventTimer" version_id="1010070" version_string="1.1.0"><![CDATA[<xf:css src="widget_sxf_et_eventTimer.less" />
+  <template type="public" title="widget_sxf_et_eventTimer" version_id="1010170" version_string="1.1.1"><![CDATA[<xf:css src="widget_sxf_et_eventTimer.less" />
+
 <div class="block">
 	<div class="block-container">
 		<div class="block-body et" 
 			style="{{ $background_color ? 'background-color:' . $background_color . ';' : ''}}
 				   {{ $background_image ? 'background:url(' . $background_image . ')  0 no-repeat/cover;' : ''}}">
-			<xf:if is="{{ !$hide_desc || $end_time > 0}}">
-				<div class="block-row description" id="description">
+			<div class="block-row description" id="description-{$key}">
 					{$description|raw}
-				</div>
-			</xf:if>
+			</div>
 			<div class="block-row timer">
 				<div id="timer-{$key}" style="{{ $timer_color ? 'color:' . $timer_color . ';' : ''}}"></div>
-				<script type="text/javascript">
-					(function(){
-						let echo = document.getElementById('timer-{$key}'),
-							fnDisplayTime = function(d, h, m, s)
-							{
-								switch('{$timer_style}')
-								{
-									case '1':
-										let t = [d,h,m,s].map(a=>a<10?`0${a}`:a);
-										
-										echo.innerHTML = '<div class="pair">' +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[0]}</dt><dd>{{ phrase('units_days') }}</dd></dl>` +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[1]}</dt><dd>{{ phrase('units_hours') }}</dd></dl>` +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[2]}</dt><dd>{{ phrase('units_minutes') }}</dd></dl>` +
-											 `<dl><dt style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${t[3]}</dt><dd>{{ phrase('units_seconds') }}</dd></dl>` +
-											 '</div>';
-										break;
-									default: 
-										echo.innerHTML = `<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${d}</span> {{ phrase('units_days') }} <br>` + 
-											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${h}</span> {{ phrase('units_hours') }} ` + 
-											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${m}</span> {{ phrase('units_minutes') }} ` + 
-											`<span style="{{ $timer_num_color ? 'color:' . $timer_num_color : ''}}">${s}</span> {{ phrase('units_seconds') }}`;
-								}
-								
-							},
-							fnEndTimer = function(msg)
-							{
-								echo.innerHTML = msg;
-								if (Math.floor('{$hide_desc}') > 0)
-								{
-									let desc = document.getElementById('description');
-									desc.hidden = true;
-								}
-								clearTimeout(timer);
-							},
-							endTime = Math.floor('{$end_time}'),
-							timer = setInterval(()=>{
-								if (endTime < 0)
-								{
-									fnEndTimer('{$end_message|raw}');
-									return;
-								}
-								
-								let s = endTime, m = s/60, h = m/60, d = h/24;
-
-								h = (d - Math.floor(d)) * 24;
-								m = (h - Math.floor(h)) * 60;
-								s = (m - Math.floor(m)) * 60;
-								
-								let t = [d,h,m,s].map(a=>Math.floor(a));
-								
-								fnDisplayTime(t[0],t[1],t[2],t[3]);
-								
-								endTime--;
-							}, 1000);	
-					})();
-				</script>
+				<xf:js src="sxf/et/EventTimer.js">
+					$('#timer-{$key}').EventTimer({
+						endTime: '{$end}',
+						endMessage: '{$end_message|raw}',
+						styleType: {{ $timer_style ? $timer_style : 0}},
+						endJob: function(a)
+						{
+							<xf:if is="{$hide_desc}">
+								$('#description-{$key}').fadeOut();
+							</xf:if>
+						}
+					});
+				</xf:js>
 			</div>
 		</div>
 	</div>

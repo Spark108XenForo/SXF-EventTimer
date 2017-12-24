@@ -47,6 +47,12 @@
         "version_string": "1.0.0",
         "hash": "27508a0cebeb8450359d8d68587f7e82"
     },
+    "sxf_et_event_start.txt": {
+        "global_cache": false,
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "a39c22ba3d07bba5eac221635d253c52"
+    },
     "sxf_et_hide_desc_end_event.txt": {
         "global_cache": false,
         "version_id": 1000070,
@@ -59,11 +65,23 @@
         "version_string": "1.0.0",
         "hash": "5247dcb18c193c80c9f8e364d2207b43"
     },
+    "sxf_et_hour.txt": {
+        "global_cache": false,
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "b55e509c697e4cca0e1d160a7806698f"
+    },
     "sxf_et_main_options.txt": {
         "global_cache": false,
         "version_id": 1000070,
         "version_string": "1.0.0",
         "hash": "b0d22edd328a05e8c57415f07ef0a279"
+    },
+    "sxf_et_minute.txt": {
+        "global_cache": false,
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "62902641c38f3a4a8eb3212454360e24"
     },
     "sxf_et_not_view_next_user_group.txt": {
         "global_cache": false,
@@ -97,15 +115,15 @@
     },
     "sxf_et_timer_style_one.txt": {
         "global_cache": false,
-        "version_id": 1000070,
-        "version_string": "1.0.0",
-        "hash": "308f33017d7b2c11146787b772ebef3c"
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "122cc9b6e367d2d7f2a6acec1c0c9b88"
     },
     "sxf_et_timer_style_two.txt": {
         "global_cache": false,
-        "version_id": 1000070,
-        "version_string": "1.0.0",
-        "hash": "d5fe835951d567c7f5c5034a955fc5d2"
+        "version_id": 1010170,
+        "version_string": "1.1.1",
+        "hash": "fe93dd46b593775bd4605ea5085ce1fd"
     },
     "sxf_et_timer_styles.txt": {
         "global_cache": false,
